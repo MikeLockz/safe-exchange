@@ -38,9 +38,6 @@ router.get('/auth', function (req, res) {
 });
 
 
-router.get
-
-
 router.get('/authredirect', function (req, res) {
     if (!Object.keys(req.query).length) {
         ``
