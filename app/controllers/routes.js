@@ -67,6 +67,14 @@ router.get('/profile', function(req, res) {
     return res.render('profile');
 })
 
+router.get('/tesla', function (req, res) {
+    return res.render('tesla');
+})
+
+router.get('/lumineers', function(req,res) {
+    return res.render('lumineers');
+})
+
 router.get('/accountSummary', function (req, res) {
     var acctInfo = [];
     var numAccts;
