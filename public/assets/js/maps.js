@@ -11,7 +11,7 @@ var infoBox_ratingType = 'star-rating';
         }
         var locations = [
 			/*-- Listing-1 ---*/
-            [locationData('listing-detail-1.html', 'assets/images/lumineers.jpg', "The Lumineers", '3112 NW Cache Rd, Arvada, CO 82505, USA', '3.5', '12'), 39.80167855121973, -105.07049560546875, 1, '<i class="im-icon"><img src="assets/images/category-icon1.png"></i>'],
+            [locationData('/lumineers', 'assets/images/lumineers.jpg', "The Lumineers", '3112 NW Cache Rd, Arvada, CO 82505, USA', '3.5', '12'), 39.80167855121973, -105.07049560546875, 1, '<i class="im-icon"><img src="assets/images/category-icon1.png"></i>'],
 			
 			/*-- Listing-2 --*/
             [locationData('listing-detail-1.html', 'assets/images/lumineers.jpg', 'Bassnectar Tickets', '41 Colorado Blvd, Denver, CO 73505, USA', '5.0', '23'), 39.70296052957233, -104.87274169921874, 2, '<i class="im-icon"><img src="assets/images/category-icon1.png"></i>'],
@@ -23,7 +23,7 @@ var infoBox_ratingType = 'star-rating';
             // [locationData('listing-detail-1.html', 'assets/images/600x450.jpg', 'Auto Repair Shop', '2726 Shinn Street, New York', '5.0', '31'), 39.9571224404468, -105.24765014648438, 4, '<i class="im-icon"><img src="assets/images/category-icon6.png"></i>'],
 			
 			/*-- Listing-5 --*/
-            [locationData('listing-detail-1.html', 'assets/images/tesla.jpg', 'Tesla Model S', '1512 Duncan Avenue, Denver, CO', '3.5', '46'), 39.64165260123416, -104.952392578125, 5, '<i class="im-icon"><img src="assets/images/category-icon2.png"></i>'],
+            [locationData('/tesla', 'assets/images/tesla.jpg', 'Tesla Model S', '1512 Duncan Avenue, Denver, CO', '3.5', '46'), 39.64165260123416, -104.952392578125, 5, '<i class="im-icon"><img src="assets/images/category-icon2.png"></i>'],
 			
 			/*-- Listing-6 --*/
             // [locationData('listing-detail-1.html', 'assets/images/600x450.jpg', 'The Shelby Apartment', '215 Terry Lane, New York', '4.5', '15'), 40.029717557833266, -105.281982421875, 6, '<i class="im-icon"><img src="assets/images/category-icon1.png"></i>'],
