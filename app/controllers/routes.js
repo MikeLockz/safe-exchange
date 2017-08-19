@@ -107,5 +107,5 @@ router.get('/accountSummary', function (req, res) {
 
 router.get('/logout', function (req, res) {
     req.session.destroy();
-    res.status(200).send('logged out');
+    res.redirect("/");
 });
