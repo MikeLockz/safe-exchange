@@ -3986,3 +3986,13 @@ p {
 
 
 
+
+/*CUSTOM*/
+
+.hide,
+#user-nav-menu {
+    display: none;
+}
+.show {
+    display: initial;
+}

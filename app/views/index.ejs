@@ -67,12 +67,20 @@
           </div>
           <div class="collapse navbar-collapse" id="navigation">
             <ul class="nav navbar-nav">
-              <!-- <li class="menu-item"><a href="/">Home</a></span></li> -->
-              <!-- <li class="menu-item"><a href="listing-grid-map.html">All Items</a></span></li> -->
               <li class="menu-item"><a href="listing-detail-2.html">Listing</a></span></li>
-              
+  
               
               <li><a id="login-button" type="submit" href="/auth">Login</a></li>
+
+              <li class="menu-item-has-children" class="hide" id="user-nav-menu">
+              	<!-- <img src="assets/images/100x100.jpg" alt="img">  -->
+              	<a href="#" id="full-name"></a> <span class="arrow"></span>
+              	<ul class="sub-menu">
+                	<li><a href="/profile"><i class="fa fa-user-o"></i> Profile</a></li>
+                    <li><a href="/history"><i class="fa fa-history"></i> History</a></li>
+                    <li><a href="/logout"><i class="fa fa-power-off"></i> Logout</a></li>
+                 </ul>
+              </li>
             </ul>
             <div class="submit_listing">
 	            <a href="dashboard-add-listing.html" class="btn outline-btn"><i class="fa  fa-plus-circle"></i> Submit Listing</a>
@@ -228,12 +236,6 @@
 
 
 <!-- Scripts --> 
-<script type="text/javascript">
-    var details = <%- JSON.stringify(userDetails) %>;
-
-    console.log(details);
-  
-</script>
 
 
 <script src="assets/js/jquery.min.js"></script>
@@ -246,5 +248,25 @@
 <script src="assets/js/infobox.min.js"></script>
 <script src="assets/js/markerclusterer.js"></script>
 <script src="assets/js/maps.js"></script>
+
+
+
+
+
+<script type="text/javascript">
+    var details = <%- JSON.stringify(userDetails) %>;
+
+    console.log(details);
+
+    if (details.hasOwnProperty('fullName')) {
+    	// Update header nav bar
+	    $('#full-name').text(details.fullName);
+	    $('#login-button').hide();
+	    $('#user-nav-menu').show();	
+    }
+
+    
+  
+</script>
 </body>
 </html>

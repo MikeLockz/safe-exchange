@@ -54,12 +54,20 @@
           </div>
           <div class="collapse navbar-collapse" id="navigation">
             <ul class="nav navbar-nav">
-              <!-- <li class="menu-item"><a href="/">Home</a></span></li> -->
-              <!-- <li class="menu-item"><a href="listing-grid-map.html">All Items</a></span></li> -->
               <li class="menu-item"><a href="listing-detail-2.html">Listing</a></span></li>
-              
+  
               
               <li><a id="login-button" type="submit" href="/auth">Login</a></li>
+
+              <li class="menu-item-has-children" class="hide" id="user-nav-menu">
+                <!-- <img src="assets/images/100x100.jpg" alt="img">  -->
+                <a href="#" id="full-name"></a> <span class="arrow"></span>
+                <ul class="sub-menu">
+                  <li><a href="/profile"><i class="fa fa-user-o"></i> Profile</a></li>
+                    <li><a href="/history"><i class="fa fa-history"></i> History</a></li>
+                    <li><a href="/logout"><i class="fa fa-power-off"></i> Logout</a></li>
+                 </ul>
+              </li>
             </ul>
             <div class="submit_listing">
               <a href="dashboard-add-listing.html" class="btn outline-btn"><i class="fa  fa-plus-circle"></i> Submit Listing</a>
@@ -109,7 +117,7 @@
             	<div class="listinghub_detail">
                 	<div class="pricing_info">
                     	<p class="listing_price"><span>$</span>51,000 - <span>$</span>53,000</p>
-                        <div class="listing_message"><a class="btn" data-toggle="modal" data-target="#message_modal"><i class="fa fa-envelope-o"></i> Send Message</a></div>
+                        <div class="listing_message"><a class="btn" data-toggle="modal" data-target="#message_modal"><i class="fa fa-random"></i> Start Exchange</a></div>
                     </div>
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                           <div class="panel panel-default">
@@ -165,12 +173,14 @@
                     </div>
                 	<div class="sidebar_wrap listing_contact_info">
                     	<div class="widget_title">
-	                    	<h6>Contact Info</h6>
+	                    	<h6>Exchange Info</h6>
                         </div>
-                    	<ul>
+                        <img src="assets/images/mike.jpg" class="pull-right" height="70" width="70">
+                    	  <ul>
+                          <li><i class="fa fa-user"></i> Mike Lockwitz</li>
                         	<li><i class="fa fa-map-marker"></i> 3829 106th Ave</li>
-                            <li><i class="fa fa-phone"></i> <a href="tel:+61-1234-5678-09">303-338-0098</a></li>
-                            <li><i class="fa fa-envelope"></i> <a href="mailto:contcat@example.com">teslafan@gmail.com</a></li>
+                          <li><i class="fa fa-phone"></i> <a href="tel:+61-1234-5678-09">303-338-0098</a></li>
+                          <li><i class="fa fa-envelope"></i> <a href="mailto:contcat@example.com">teslafan@gmail.com</a></li>
                         </ul>
                         <div class="social_links">
                         	<a href="#" class="facebook_link"><i class="fa fa-facebook-f"></i></a>
@@ -312,7 +322,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-        <h3 class="modal-title">Send Message</h3>
+        <h3 class="modal-title">Start Exchange</h3>
       </div>
       <div class="modal-body">
         <form action="#" method="get">
