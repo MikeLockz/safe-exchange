@@ -7,29 +7,29 @@ var infoBox_ratingType = 'star-rating';
         var ib = new InfoBox();
 
         function locationData(locationURL, locationImg, locationTitle, locationAddress, locationRating, locationRatingCounter) {
-            return ('' + '<a href="' + locationURL + '" class="listing-img-container">' + '<div class="infoBox-close"><i class="fa fa-times"></i></div>' + '<img src="' + locationImg + '" alt="">' + '<div class="listing-item-content">' + '<h3>' + locationTitle + '</h3>' + '<span>' + locationAddress + '</span>' + '</div>' + '</a>' + '<div class="listing-content">' + '<div class="listing-title">' + '<div class="' + infoBox_ratingType + '" data-rating="' + locationRating + '"><div class="rating-counter">(' + locationRatingCounter + ' reviews)</div></div>' + '</div>' + '</div>')
+            return ('' + '<a href="' + locationURL + '" class="listing-img-container">' + '<div class="infoBox-close"><i class="fa fa-times"></i></div>' + '<img src="' + locationImg + '" alt="">' + '<div class="listing-item-content">' + '<h3>' + locationTitle + '</h3>' + '<span>' + locationAddress + '</span>' + '</div>' + '</a>' + '<div class="listing-content">' + '<div class="listing-title">' + '<div class="' + infoBox_ratingType + '" data-rating="' + locationRating + '"><div class="rating-counter">(' + locationRatingCounter + ' views)</div></div>' + '</div>' + '</div>')
         }
         var locations = [
 			/*-- Listing-1 ---*/
-            [locationData('listing-detail-1.html', 'assets/images/600x450.jpg', "The Morning Hotel", '3112 NW Cache Rd, Lawton, OK 73505, USA', '3.5', '12'), 40.94401669296697, -74.16938781738281, 1, '<i class="im-icon"><img src="assets/images/category-icon5.png"></i>'],
+            [locationData('listing-detail-1.html', 'assets/images/lumineers.jpg', "The Lumineers", '3112 NW Cache Rd, Arvada, CO 82505, USA', '3.5', '12'), 39.80167855121973, -105.07049560546875, 1, '<i class="im-icon"><img src="assets/images/category-icon1.png"></i>'],
 			
 			/*-- Listing-2 --*/
-            [locationData('listing-detail-1.html', 'assets/images/600x450.jpg', 'Laisa Spa Center', '41 Sunset Blvd, Lawton, OK 73505, USA', '5.0', '23'), 40.77055783505125, -74.26002502441406, 2, '<i class="im-icon"><img src="assets/images/category-icon4.png"></i>'],
+            [locationData('listing-detail-1.html', 'assets/images/lumineers.jpg', 'Bassnectar Tickets', '41 Colorado Blvd, Denver, CO 73505, USA', '5.0', '23'), 39.70296052957233, -104.87274169921874, 2, '<i class="im-icon"><img src="assets/images/category-icon1.png"></i>'],
 			
 			/*-- Listing-3 --*/
-            [locationData('listing-detail-1.html', 'assets/images/600x450.jpg', 'Blue Women Parlour', '778 Sunset Blvd, Lawton, OK 73505, USA', '2.0', '17'), 40.7427837, -73.11445617675781, 3, '<i class="im-icon"><img src="assets/images/category-icon4.png"></i>'],
+            [locationData('listing-detail-1.html', 'assets/images/parking.jpg', 'LoDo Parking Spot', '778 Brighton Blvd, Denver, CO 73505, USA', '2.0', '17'), 39.67231336658968, -105.09246826171875, 3, '<i class="im-icon"><img src="assets/images/category-icon4.png"></i>'],
 			
 			/*-- Listing-4 --*/
-            [locationData('listing-detail-1.html', 'assets/images/600x450.jpg', 'Auto Repair Shop', '2726 Shinn Street, New York', '5.0', '31'), 40.70437865245596, -73.98674011230469, 4, '<i class="im-icon"><img src="assets/images/category-icon6.png"></i>'],
+            // [locationData('listing-detail-1.html', 'assets/images/600x450.jpg', 'Auto Repair Shop', '2726 Shinn Street, New York', '5.0', '31'), 39.9571224404468, -105.24765014648438, 4, '<i class="im-icon"><img src="assets/images/category-icon6.png"></i>'],
 			
 			/*-- Listing-5 --*/
-            [locationData('listing-detail-1.html', 'assets/images/600x450.jpg', 'Eating Restaurant', '1512 Duncan Avenue, New York', '3.5', '46'), 40.641311, -73.778139, 5, '<i class="im-icon"><img src="assets/images/category-icon2.png"></i>'],
+            [locationData('listing-detail-1.html', 'assets/images/tesla.jpg', 'Tesla Model S', '1512 Duncan Avenue, Denver, CO', '3.5', '46'), 39.64165260123416, -104.952392578125, 5, '<i class="im-icon"><img src="assets/images/category-icon2.png"></i>'],
 			
 			/*-- Listing-6 --*/
-            [locationData('listing-detail-1.html', 'assets/images/600x450.jpg', 'The Shelby Apartment', '215 Terry Lane, New York', '4.5', '15'), 41.080938, -73.535957, 6, '<i class="im-icon"><img src="assets/images/category-icon1.png"></i>'],
+            // [locationData('listing-detail-1.html', 'assets/images/600x450.jpg', 'The Shelby Apartment', '215 Terry Lane, New York', '4.5', '15'), 40.029717557833266, -105.281982421875, 6, '<i class="im-icon"><img src="assets/images/category-icon1.png"></i>'],
 			
 			/*-- Listing-7 --*/
-            [locationData('listing-detail-1.html', 'assets/images/600x450.jpg', 'Fitness Center', '2726 Shinn Street, New York', '5.0', '31'), 41.079386, -73.519478, 7, '<i class="im-icon"><img src="assets/images/category-icon3.png"></i>'],
+            // [locationData('listing-detail-1.html', 'assets/images/600x450.jpg', 'Fitness Center', '2726 Shinn Street, New York', '5.0', '31'), 39.72303232864369, -105.00732421875, 7, '<i class="im-icon"><img src="assets/images/category-icon3.png"></i>'],
         ];
         google.maps.event.addListener(ib, 'domready', function() {
             if (infoBox_ratingType = 'numerical-rating') {
@@ -44,7 +44,7 @@ var infoBox_ratingType = 'star-rating';
         if (typeof mapZoomAttr !== typeof undefined && mapZoomAttr !== false) {
             var zoomLevel = parseInt(mapZoomAttr);
         } else {
-            var zoomLevel = 5;
+            var zoomLevel = 9;
         }
         if (typeof mapScrollAttr !== typeof undefined && mapScrollAttr !== false) {
             var scrollEnabled = parseInt(mapScrollAttr);
@@ -54,7 +54,7 @@ var infoBox_ratingType = 'star-rating';
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: zoomLevel,
             scrollwheel: scrollEnabled,
-            center: new google.maps.LatLng(40.80, -73.70),
+            center: new google.maps.LatLng(39.743098286948275, -104.98672485351562),
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             zoomControl: false,
             mapTypeControl: false,

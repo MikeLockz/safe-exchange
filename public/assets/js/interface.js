@@ -8,7 +8,7 @@ $(function(e) {
     loop:true,
     margin:15,
     nav:true,
-	autoplay:true,
+	autoplay:false,
     autoplayTimeout:5000,
     responsive:{
         0:{items:1},
@@ -26,7 +26,7 @@ $(function(e) {
     margin:30,
     nav:true,
 	dots:false,
-	autoplay:true,
+	autoplay:false,
     autoplayTimeout:5000,
     responsive:{
         0:{items:1},
@@ -44,7 +44,7 @@ $(function(e) {
     margin:15,
     nav:true,
 	dots:false,
-	autoplay:true,
+	autoplay:false,
     autoplayTimeout:5000,
     responsive:{
         0:{items:1},
