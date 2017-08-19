@@ -1,4 +1,4 @@
- /*
+/*
 File name: routes.js
 Description: Routes for external rewards reference application.
 
@@ -8,7 +8,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
  
-    http://www.apache.org/licenses/LICENSE-2.0
+   http://www.apache.org/licenses/LICENSE-2.0
  
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -17,67 +17,83 @@ See the License for the specific language governing permissions and limitations 
 */
 
 var express = require('express'),
-  router = express.Router(),
-  api = require('../models/api');
-  util = require('../models/util');
+    router = express.Router(),
+    api = require('../models/api');
+var util = require('../models/util');
+var config = require('../../config/config');
+
+
+request = require('request');
 
 module.exports = function (app) {
-  app.use('/', router);
+    app.use('/', router);
 };
 
-router.get('/', function(req, res) {
-  res.render('index');
+router.get('/', function (req, res) {
+    res.render('index', { userDetails: ""});
 });
 
 router.get('/auth', function (req, res) {
     res.redirect(api.getAuthURL());
 });
 
-router.get('/authredirect',function(req,res) {
+
+router.get('/authredirect', function (req, res) {
     if (!Object.keys(req.query).length) {
-        return res.status(401).render('error', {error: 'Did not receive authorization code.'});
+        ``
+        return res.status(401).render('error', { error: 'Did not receive authorization code.' });
     }
-    var code = req.query.code; 
-    api.processCode(code, function(err, token) {
-        if(err){
-            return res.status(403).render('error', {error: 'Invalid authorization code.'});
+    var code = req.query.code;
+    api.processCode(code, function (err, token) {
+        if (err) {
+            return res.status(403).render('error', { error: 'Invalid authorization code.' });
         }
-        req.session.token=token;
+        req.session.token = token;
         res.render('loading');
     });
 });
 
-router.get('/accountSummary',function(req,res) {
+
+router.get('/accountInfo', function (req, res) {
+
+    api.getAcctDetail(req.session.token, function (err, accountInfo) {
+
+        var userDetails = accountInfo.claims.identity[0].resourceDetails;
+        return res.render('index', { userDetails: userDetails })
+    });
+});
+
+router.get('/accountSummary', function (req, res) {
     var acctInfo = [];
     var numAccts;
-    if(!req.session.token) { 
-        return res.status(403).render('error', {error: 'You must grant access to see this page.'});
+    if (!req.session.token) {
+        return res.status(403).render('error', { error: 'You must grant access to see this page.' });
     }
-    api.getAcctSummary(req.session.token, function(err, accts) {
-        if(err) {
-            return res.status(500).render('error', {error: err});
+    api.getAcctSummary(req.session.token, function (err, accts) {
+        if (err) {
+            return res.status(500).render('error', { error: err });
         }
         numAccts = accts.rewardsAccounts.length;
-        for(var acctIndex=0; acctIndex < numAccts; acctIndex++ ) {
+        for (var acctIndex = 0; acctIndex < numAccts; acctIndex++) {
             var refId = encodeURIComponent(accts.rewardsAccounts[acctIndex].rewardsAccountReferenceId);
             api.getAcctDetail(req.session.token, refId, onDetailResponse);
         }
 
         function onDetailResponse(err, acct_detail) {
-            if(err) { 
-                return res.status(500).render('error', {error: err});
+            if (err) {
+                return res.status(500).render('error', { error: err });
             }
             acctInfo.push(acct_detail);
-            if(acctInfo.length === numAccts) {
-                util.renderHTML(acctInfo, function(err, summaryDisplay, detailDispaly, name) {
-                    return res.render('account-summary', { summary: summaryDisplay, detail: detailDispaly, name: name}); 
+            if (acctInfo.length === numAccts) {
+                util.renderHTML(acctInfo, function (err, summaryDisplay, detailDispaly, name) {
+                    return res.render('account-summary', { summary: summaryDisplay, detail: detailDispaly, name: name });
                 });
             }
         }
     });
-});        
+});
 
-router.get('/logout',function (req, res) {
+router.get('/logout', function (req, res) {
     req.session.destroy();
     res.status(200).send('logged out');
 });
