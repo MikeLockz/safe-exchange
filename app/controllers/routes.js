@@ -59,20 +59,21 @@ router.get('/accountInfo', function (req, res) {
     api.getAcctDetail(req.session.token, function (err, accountInfo) {
 
         var userDetails = accountInfo.claims.identity[0].resourceDetails;
-        return res.render('index', { userDetails: userDetails })
+        req.session.userDetails = userDetails;
+        return res.render('index', { userDetails: userDetails });
     });
 });
 
 router.get('/profile', function(req, res) {
-    return res.render('profile');
+    return res.render('profile', { userDetails: req.session.userDetails })
 })
 
 router.get('/tesla', function (req, res) {
-    return res.render('tesla');
+    return res.render('tesla', { userDetails: req.session.userDetails })
 })
 
 router.get('/lumineers', function(req,res) {
-    return res.render('lumineers');
+    return res.render('lumineers', { userDetails: req.session.userDetails })
 })
 
 router.get('/accountSummary', function (req, res) {
