@@ -114,7 +114,7 @@
         	<div class="col-md-8">
             	<div class="listinghub_detail">
                 	<div class="pricing_info">
-                    	<p class="listing_price"><span>$</span>51,000 - <span>$</span>53,000</p>
+                    	<p class="listing_price">51,000,000 - 53,000,000 <span>points</span></p>
                         <div class="listing_message"><a class="btn" data-toggle="modal" data-target="#message_modal"><i class="fa fa-random"></i> Start Exchange</a></div>
                     </div>
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -389,5 +389,22 @@
 <!--Map-JS--> 
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
 <script src="assets/js/maps.js"></script>
+
+
+<script type="text/javascript">
+    var details = <%- JSON.stringify(userDetails) %>;
+
+    console.log(details);
+
+    if (details.hasOwnProperty('fullName')) {
+      // Update header nav bar
+      $('#full-name').text(details.fullName);
+      $('#login-button').hide();
+      $('#user-nav-menu').show(); 
+    }
+
+    
+  
+</script>
 </body>
 </html>

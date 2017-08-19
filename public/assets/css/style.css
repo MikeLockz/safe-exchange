@@ -4007,3 +4007,9 @@ p {
 #full-name {
   display: inline-block;
 }
+#rewards {
+  font-size: 3em;
+ }
+#rewards span {
+  color: #38ccff;
+}
