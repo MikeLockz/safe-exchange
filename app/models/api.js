@@ -1,4 +1,4 @@
- /*
+/*
 File name: api.js
 Description: API calls for external rewards reference application.
 
@@ -8,7 +8,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
  
-    http://www.apache.org/licenses/LICENSE-2.0
+   http://www.apache.org/licenses/LICENSE-2.0
  
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -27,26 +27,24 @@ var oauth2 = require('simple-oauth2')({
     tokenPath: '/oauth2/token',
     authorizationPath: '/oauth2/authorize',
     headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'User-Agent':'curl/7.43.0'
-            }
-});
-
-var authorization_uri = oauth2.authCode.authorizeURL({
-    redirect_uri: config.REDIRECT_URI,
-    scope: 'read_rewards_account_info'
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'User-Agent': 'curl/7.43.0'
+    }
 });
 
 var exports = module.exports = {};
 
 // Return the authorization endpoint uri
-exports.getAuthURL = function() {
-	return authorization_uri;
+exports.getAuthURL = function () {
+    return oauth2.authCode.authorizeURL({
+        redirect_uri: config.REDIRECT_URI,
+        scope: 'signup openid'
+    });
 };
 
 // Exchange access code for bearer token
-exports.processCode = function(code, cb) {
-    oauth2.authCode.getToken({ code: code, redirect_uri: config.REDIRECT_URI}, function(error, result) {
+exports.processCode = function (code, cb) {
+    oauth2.authCode.getToken({ code: code, redirect_uri: config.REDIRECT_URI }, function (error, result) {
         if (error) {
             return cb('Invalid authorization code. Please try logging in again.');
         }
@@ -56,20 +54,20 @@ exports.processCode = function(code, cb) {
 };
 
 // Call rewards summary API endpoint
-exports.getAcctSummary = function(accessToken, cb) {
+exports.getAcctDetail = function (accessToken, cb) {
 
     var acct_req = request
-    .get(config.BASE_URI + '/rewards/accounts', {'auth': {'bearer': accessToken}, 'headers':{'User-Agent':'curl/7.43.0'}})
-    .on('error', function(err) {
-        return cb(err);
-    })
-    .on('response', onSummaryResponse);
+        .get(config.BASE_URI + '/oauth2/userinfo', { 'auth': { 'bearer': accessToken }, 'headers': { 'User-Agent': 'curl/7.43.0' } })
+        .on('error', function (err) {
+            return cb(err);
+        })
+        .on('response', onSummaryResponse);
 
     function onSummaryResponse(res) {
         var dataBody = '';
         res.setEncoding('utf8');
         res.on('data', function (chunk) {
-            console.log('****Response from rewards summary: ' + chunk + '\n');
+            console.log('****Response from userinfo: ' + chunk + '\n');
             dataBody += chunk;
         });
 
@@ -78,7 +76,7 @@ exports.getAcctSummary = function(accessToken, cb) {
                 return cb('Access denied due to customer or account standing. Please login to online account for more information.');
             }
             if (res.statusCode !== 200) {
-                return cb('Summary API experienced a problem. Please try logging in again.');               
+                return cb('Summary API experienced a problem. Please try logging in again.');
             }
             return cb(null, JSON.parse(dataBody));
         });
@@ -86,13 +84,13 @@ exports.getAcctSummary = function(accessToken, cb) {
 };
 
 // Call rewards details API endpoint
-exports.getAcctDetail = function( accessToken, ref_id, cb) {
+exports.getAcctSummary = function (accessToken, ref_id, cb) {
 
-    var acct_req = request.get(config.BASE_URI + '/rewards/accounts/' + ref_id, {'auth': {'bearer': accessToken}, 'headers':{'User-Agent':'curl/7.43.0'}})
-    .on('error', function(err) {
-        return cb(err);
-    })
-    .on('response', onDetailResponse);
+    var acct_req = request.get(config.BASE_URI + '/rewards/accounts/' + ref_id, { 'auth': { 'bearer': accessToken }, 'headers': { 'User-Agent': 'curl/7.43.0' } })
+        .on('error', function (err) {
+            return cb(err);
+        })
+        .on('response', onDetailResponse);
 
     function onDetailResponse(res) {
         var dataBody = '';
@@ -103,7 +101,7 @@ exports.getAcctDetail = function( accessToken, ref_id, cb) {
         });
         res.on('end', function () {
             if (res.statusCode !== 200) {
-                return cb('Detail API experienced a problem. Please try logging in again.');               
+                return cb('Detail API experienced a problem. Please try logging in again.');
             }
             return cb(null, JSON.parse(dataBody));
         });

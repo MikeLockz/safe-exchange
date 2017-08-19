@@ -70,7 +70,8 @@
               <!-- <li class="menu-item"><a href="listing-grid-map.html">All Items</a></span></li> -->
               <li class="menu-item"><a href="listing-detail-2.html">Listing</a></span></li>
               
-              <li><a href="signin.html">Sign In</a></li>
+              
+              <li><a id="login-button" type="submit" href="/auth">Login</a></li>
             </ul>
             <div class="submit_listing">
 	            <a href="dashboard-add-listing.html" class="btn outline-btn"><i class="fa  fa-plus-circle"></i> Submit Listing</a>
@@ -226,6 +227,14 @@
 
 
 <!-- Scripts --> 
+<script type="text/javascript">
+    var details = <%- JSON.stringify(userDetails) %>;
+
+    console.log(details);
+  
+</script>
+
+
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script> 
 <script src="assets/js/interface.js"></script> 
