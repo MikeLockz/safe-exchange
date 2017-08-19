@@ -63,6 +63,10 @@ router.get('/accountInfo', function (req, res) {
     });
 });
 
+router.get('/profile', function(req, res) {
+    return res.render('profile');
+})
+
 router.get('/accountSummary', function (req, res) {
     var acctInfo = [];
     var numAccts;
