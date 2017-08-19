@@ -1,0 +1,99 @@
+<!--
+	File name: account-summary.ejs
+	Description: template html file for account summary page of external API reference application
+
+	Copyright 2016 Capital One Services, LLC
+	 
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+	 
+	    http://www.apache.org/licenses/LICENSE-2.0
+	 
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and limitations under the License.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Rewards Demo</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>			
+		<div class="capitalone-logo">
+			<h1>
+				<img src="/img/capitalone-logo-2x-oasis.png" alt="Capital One" class="default-logo">
+			</h1>
+		</div>
+		<div id="logout">
+			<a onclick="logout()" id="header_signout_link" class="log_out">Sign Out</a>
+		</div>
+
+		<div id="main">
+			<div id="welcome">
+				<h2 id="welcome-msg">Click on an account to reveal more information.</h2>
+			</div>
+			<ul id="container">
+			</ul>
+		</div>
+		<script src="components/jquery/dist/jquery.min.js"></script>
+		<script type="text/javascript">
+			var detail_strings = <%- JSON.stringify(detail) %>;
+			var summary_displayed =true;
+
+			$(function(){
+				var summaryHTML = <%- JSON.stringify(summary) %>
+				replaceAcctInfo(summaryHTML);	
+			});
+
+			function replaceAcctInfo(summary) {
+					
+				for (var i=0;i < summary.length; i++) {
+					$(summary[i]).appendTo('#container');
+				}
+
+				if (summary.length > 0){
+					var name='<h1 class="page_title">Welcome <%- name %></h1>';
+					$(name).insertBefore('#welcome');
+					$('#welcome-msg').fadeIn(1000);
+				} else {
+					var no_accts = 'You have no rewards accounts avaliable to display.';
+					$('#welcome-msg').html(no_accts);
+					$('#welcome-msg').fadeIn(1000);
+				}
+				$('.COF').fadeIn(1500);
+			};
+
+
+			function toggle_display(id){
+
+				if(summary_displayed == true){
+					$('.COF').hide();
+					$(detail_strings[id]).appendTo('#container');
+					summary_displayed=false;
+					$('#welcome-msg').hide();
+				}
+				else{
+					$('.details').remove();
+					$('.COF').show();
+					$('#welcome-msg').show();
+					summary_displayed=true;
+				}
+			}
+
+			function logout(){
+				$.ajax({
+				     async: false,
+				     type: 'GET',
+				     url: '/logout',
+				});
+				window.location.href = "/";
+			}
+			
+		</script>
+	</body>
+</html>
