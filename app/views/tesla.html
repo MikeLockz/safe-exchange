@@ -54,13 +54,11 @@
           </div>
           <div class="collapse navbar-collapse" id="navigation">
             <ul class="nav navbar-nav">
-              <li class="menu-item"><a href="listing-detail-2.html">Listing</a></span></li>
-  
               
               <li><a id="login-button" type="submit" href="/auth">Login</a></li>
 
               <li class="menu-item-has-children" class="hide" id="user-nav-menu">
-                <!-- <img src="assets/images/100x100.jpg" alt="img">  -->
+                <img src="assets/images/reggie.jpg" alt="img" id="user-avatar">
                 <a href="#" id="full-name"></a> <span class="arrow"></span>
                 <ul class="sub-menu">
                   <li><a href="/profile"><i class="fa fa-user-o"></i> Profile</a></li>
@@ -168,7 +166,7 @@
                             <li><a data-toggle="modal" data-target="#share_modal"><i class="fa fa-share-alt"></i> Share This</a></li>
                             <li><a data-toggle="modal" data-target="#email_friends_modal"><i class="fa fa-envelope-o"></i>Email to Friends</a></li>
                             <li><a href="#writereview" class="js-target-scroll"> <i class="fa fa-credit-card"></i> Credit Offers</a></li>
-                            <li><a data-toggle="modal" data-target="#report_modal"><i class="fa fa-exclamation-triangle"></i> Report</a></li>
+                            <li><a data-toggle="modal" data-target="#report_modal"><i class="fa fa-bank"></i> New Account</a></li>
                         </ul>
                     </div>
                 	<div class="sidebar_wrap listing_contact_info">
@@ -276,38 +274,75 @@
 
 <!-- Report -->
 <div id="report_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-        <h3 class="modal-title">Report This Listing</h3>
-        <p>Please indicate what problem has been found!</p>
+        <h3 class="modal-title">Instant Account</h3>
+        <p>Because you are already a CapitalOne OpenID member, we can open a FREE banking account.</p>
       </div>
       <div class="modal-body">
         <form action="#" method="get">
-          <div class="form-group">
-            <div class="radio">
-                <input type="radio" name="RadioGroup1" value="radio" id="RadioGroup1_0" checked>
-                <label for="RadioGroup1_0">Duplicate Listing</label>
-             </div>
-             <div class="radio">
-                <input type="radio" name="RadioGroup1" value="radio" id="RadioGroup1_1">
-                <label for="RadioGroup1_1">Wrong Contact Info </label>
-             </div>
-             <div class="radio">
-                <input type="radio" name="RadioGroup1" value="radio" id="RadioGroup1_2">
-                <label for="RadioGroup1_2">Fake Listing</label>
-             </div>
-             <div class="radio">
-                <input type="radio" name="RadioGroup1" value="radio" id="RadioGroup1_2">
-                <label for="RadioGroup1_2">Other Problem</label>
-             </div>
+          <div class="row">
+            <div class="form-group col-md-5">
+              <label class="form-label">First Name</label>
+              <input type="text" class="form-control" value="Reggie">
+            </div>
+            <div class="form-group col-md-2">
+              <label class="form-label">Middle Initial</label>
+              <input type="text" class="form-control" value="G">
+            </div>
+            <div class="form-group col-md-5">
+              <label class="form-label">Last Name</label>
+              <input type="text" class="form-control" value="Johnson">
+            </div>
           </div>
-          <div class="form-group">
-            <textarea rows="4" class="form-control" placeholder="Problem Description"></textarea>
+          <div class="row">
+            <div class="form-group col-md-12">
+              <label class="form-label">Street</label>
+              <input type="text" class="form-control" value="1230 Duck Fuss Lane">
+            </div>
           </div>
+          <div class="row">
+            <div class="form-group col-md-4">
+              <label class="form-label">City</label>
+              <input type="text" class="form-control" value="Beaumont">
+            </div>
+            <div class="form-group col-md-4">
+              <label class="form-label">State</label>
+              <input type="text" class="form-control" value="TX">
+            </div>
+            <div class="form-group col-md-4">
+              <label class="form-label">Zip</label>
+              <input type="text" class="form-control" value="77701">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label class="form-label">Tax ID</label>
+              <input type="text" class="form-control" placeholder="xxx-xx-xxxx">
+            </div>
+            <div class="form-group col-md-6">
+              <label class="form-label">Date of Birth</label>
+              <input type="text" class="form-control" value="1970-06-29">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label class="form-label">Annual Income</label>
+              <input type="text" class="form-control" value="$75,0000">
+            </div>
+            <div class="form-group col-md-6">
+              <label class="form-label">Email</label>
+              <input type="text" class="form-control" value="reggie@rgjohnson.com">
+            </div>
+          </div>
+          <div class="row">
+            
+          </div>
+          
           <div class="form-group">
-            <input value="Submit" class="btn btn-block" type="submit">
+            <input value="Instant Account" class="btn btn-block" type="submit">
           </div>
         </form>
       </div>

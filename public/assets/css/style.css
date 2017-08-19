@@ -3996,3 +3996,14 @@ p {
 .show {
     display: initial;
 }
+
+#user-avatar {
+  border-radius: 50%;
+  display: inline-block;
+  height: 70px;
+  width: auto;
+  margin-right: 10px;
+}
+#full-name {
+  display: inline-block;
+}

@@ -548,7 +548,7 @@ table thead th, table thead td {
 	1.10. Modal
 --------------------------------*/
 .modal-dialog {
-  max-width: 500px;
+  
 }
 .modal-content {
   padding: 0 32px 22px;
