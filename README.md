@@ -3,7 +3,7 @@
 ## Safe-Exchange 
 Trustless Exchanges made secure. 
 
-[This project and presentation won the top Identity project at the Denver, Colorado Hackathon held August 18-19, 2017]]
+[This project and presentation won the top Identity project prize at the Denver, Colorado Hackathon held August 18-19, 2017]
 
 Safe Exchange brings trust to what might have traditionally been a trustless exchange. It also adds the ability to sell and buy with reward points.
 
